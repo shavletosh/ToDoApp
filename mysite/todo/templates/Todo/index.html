@@ -1,0 +1,29 @@
+{% extends './base.html' %}
+
+
+{% block header %}
+   <h1>TO DO</h1>
+{% endblock %}
+
+{% block content %}
+	{% for todo in todolist %}
+		{% if todo.status == 'done' %}
+			<ul class="task-block">
+				<li class="clause">{{ todo.clause }}</li>
+				<li class="status">{{ todo.status }}</li>
+			</ul>
+		{% endif %}
+		{% if todo.status == 'avtivet' %}
+			<ul class="clause-block">
+				<li class="clause">{{ todo.clause }}</li>
+				<li class="status">{{ todo.status }}</li>
+			</ul>
+		{% endif %}
+		{% if todo.status == 'canceled' %}
+			<ul class="task-block">
+				<li class="clause">{{ todo.clause  }}</li>
+				<li class="status">{{ todo.status }}</li>
+			</ul>
+		{% endif %}
+	{% endfor %}
+{% endblock %}
